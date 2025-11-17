@@ -40,6 +40,38 @@ By the end of this module, participants will be able to:
 
 ## 1. The Anatomy of an NLP Pipeline (20 min)
 
+### NLP General Workflow 
+
+```mermaid
+flowchart TD
+    A[1. Problem Definition & Business Understanding] --> B[2. Data Acquisition];
+    B --> C(3. Text Preprocessing & Cleaning);
+    
+    subgraph C [3. Text Preprocessing & Cleaning]
+        direction TB
+        C1[Tokenization : splitting text into words/tokens]
+        C2[Normalization : e.g., lowercasing, remove punctuation]
+        C3[Stopword Removal : e.g., 'the', 'is', 'a']
+        C4[Stemming / Lemmatization : reducing words to root form]
+        C1 --> C2 --> C3 --> C4
+    end
+
+    C --> D(4. Feature Engineering / Text Representation);
+    
+    subgraph D [4. Feature Engineering / Text Representation]
+        direction TB
+        D1[Classical Methods : e.g., Bag-of-Words, TF-IDF]
+        D2[Static Embeddings : e.g., Word2Vec, GloVe]
+        D3[Contextual Embeddings : e.g., BERT, Transformers]
+        D1 -.-> D2 -.-> D3
+    end
+    
+    D --> E[5. Model Building & Training];
+    E --> F[6. Model Evaluation];
+    F --> G[7. Deployment & Monitoring];
+    
+```
+
 * **Beyond "Magic":** In the previous module, we manually vectorized text (TF-IDF/embeddings) and fed it to a classifier. Modern NLP models (Transformers) require a more complex, standardized sequence of steps.
 * **The Three Stages:**
     1.  **Preprocessing (Tokenization):** Converting raw strings into model-readable integer IDs. This *must* match the specific vocabulary the model was trained on.
