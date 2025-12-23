@@ -40,6 +40,24 @@ By the end of this module, participants will be able to:
 
 ## 1. The Anatomy of an NLP Pipeline (20 min)
 
+### Evolution of traditional and modern NLP 
+
+| TRADITIONAL NLP | MODERN NLP |
+| :--- | :--- |
+| Requires training a custom model for your data. | Uses a pre-trained model. | 
+| Requires large amounts of labeled data. | Requires less training data. |
+| Not typically generalizable to new use cases. | Faster and more scalable. More generalizable. |
+
+> You will focus on Modern NLP methods in this lesson. 
+
+### What is a pipeline? 
+
+A pipeline is a standardized set of steps that process raw text or images, perform model inference, and delivers model outputs. 
+
+
+
+
+
 ### NLP General Workflow 
 
 ```mermaid
@@ -114,22 +132,7 @@ With over 500,000+ models on the Hugging Face Hub, how do you choose?
 
 **Objective:** Construct a reusable benchmarking pipeline that takes *any* list of text inputs and compares varying pre-trained models on speed and output.
 
-**Dataset:** Use a challenging small set of custom "tricky" reviews:
-* *Sarcasm:* "Great, my battery lasted a whole 20 minutes."
-* *Mixed:* "The acting was superb, but the script was absolute trash."
-
-**Steps:**
-1.  **Baseline (Default):** Initialize `pipeline("sentiment-analysis")`. This usually defaults to a generic DistilBERT model. Run it on the data.
-2.  **Challenger 1 (RoBERTa for Social Media):**
-    * Initialize a specific pipeline: `pipeline("sentiment-analysis", model="cardiffnlp/twitter-roberta-base-sentiment-latest")`.
-    * *Hypothesis:* This should handle slang, emojis, and sarcasm better than the baseline.
-3.  **Challenger 2 (Domain Specific - Optional):** try a finance or multilingual model if relevant to student interests.
-4.  **Benchmarking Loop:**
-    * Create a function that takes a `pipeline` object and a list of texts.
-    * Use Python's `time.perf_counter()` to measure exactly how long the `.__call__()` takes for the whole batch.
-    * Store results in a Pandas DataFrame for side-by-side comparison of predictions and confidence scores.
-
-**Expected Outcome:** Students should see that generic models often fail on sarcasm (labeling "Great, my battery..." as POSITIVE due to the word "Great"), while domain-adapted models (like Twitter-RoBERTa) might catch it.
+**Refer:** [Plug-and-Play Pipelines](https://git.generalassemb.ly/applied-ai-and-deep-learning-in-action/Lab-3_2-Plug-and-Play-Pipelines)
 
 ## 5. Wrap-Up and Reflection (15 min)
 
