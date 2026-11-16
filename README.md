@@ -132,7 +132,7 @@ With over 500,000+ models on the Hugging Face Hub, how do you choose?
 
 **Objective:** Construct a reusable benchmarking pipeline that takes *any* list of text inputs and compares varying pre-trained models on speed and output.
 
-**Refer:** [Plug-and-Play Pipelines](https://git.generalassemb.ly/applied-ai-and-deep-learning-in-action/Lab-3_2-Plug-and-Play-Pipelines)
+**Refer:** [Plug-and-Play Pipelines](https://github.com/ga-curriculum/lab-3-2-plug-and-play-pipelines)
 
 ## 5. Wrap-Up and Reflection (15 min)
 
